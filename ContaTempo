@@ -1,0 +1,10 @@
+#include <ctime>
+#include <chrono>
+#include <iomanip>
+
+// Get current time
+std::chrono::time_point<std::chrono::system_clock> time_now = std::chrono::system_clock::now();
+
+// Print time using ctime
+std::time_t time_now_t = std::chrono::system_clock::to_time_t(time_now);
+std::cout << std::ctime(&time_now_t) << std::endl;
