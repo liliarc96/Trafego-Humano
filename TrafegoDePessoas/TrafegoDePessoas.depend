@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1528733797 source:/home/lilia/Desktop/TrafegoDePessoas/TrafegoDePessoas/main.cpp
+	<iostream>
+
+1528738285 source:/home/lilia/Desktop/TrafegoDePessoas/TrafegoDePessoas/src/Estatisticas.cpp
+	"Estatisticas.h"
+
+1528740595 /home/lilia/Desktop/TrafegoDePessoas/TrafegoDePessoas/include/Estatisticas.h
+
