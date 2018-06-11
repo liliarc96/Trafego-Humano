@@ -2,6 +2,8 @@
 #include <chrono>
 #include <iomanip>
 
+using namespace std;
+
 // Get current time
 std::chrono::time_point<std::chrono::system_clock> time_now = std::chrono::system_clock::now();
 
