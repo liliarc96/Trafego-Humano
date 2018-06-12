@@ -35,11 +35,11 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/Estatisticas.h" />
-		<Unit filename="include/Face.h" />
+		<Unit filename="include/DetectorDeFace.h" />
 		<Unit filename="include/Tempo.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Estatisticas.cpp" />
-		<Unit filename="src/Face.cpp" />
+		<Unit filename="src/DetectorDeFace.cpp" />
 		<Unit filename="src/Tempo.cpp" />
 		<Extensions>
 			<code_completion />
