@@ -10,43 +10,21 @@
 #include "Tempo.h"
 #include "Estatisticas.h"
 
-const cv::String    WINDOW_NAME("Trafego de Pessoas");
-const cv::String    CASCADE_FILE("haarcascade_frontalface_default.xml");
-
-int main(int argc, char** argv)
+int main()
 {
-	// Try opening camera
-	cv::VideoCapture camera(0);
+	VideoCapture camera(0);
+	Mat frame;
 	if (!camera.isOpened()) {
-		fprintf(stderr, "Error getting camera...\n");
+		fprintf(stderr, "A camera nao esta aberta!\n"); //Programa fecha se a câmera não abrir
 		exit(1);
 	}
 
-	cv::namedWindow(WINDOW_NAME, cv::WINDOW_KEEPRATIO | cv::WINDOW_AUTOSIZE);
+	face_cascade.load("haarcascade_frontalface_alt.xml"); // Carregar faces
 
-	VideoFaceDetector detector(CASCADE_FILE, camera);
-	cv::Mat frame;
-	double fps = 0, time_per_frame;
-	while (true)
-	{
-		auto start = cv::getCPUTickCount();
-		detector >> frame;
-		auto end = cv::getCPUTickCount();
-
-		time_per_frame = (end - start) / cv::getTickFrequency();
-		fps = (15 * fps + (1 / time_per_frame)) / 16;
-
-		printf("Time per frame: %3.3f\tFPS: %3.3f\n", time_per_frame, fps);
-
-		if (detector.isFaceFound())
-		{
-			cv::rectangle(frame, detector.face(), cv::Scalar(255, 0, 0));
-			cv::circle(frame, detector.facePosition(), 30, cv::Scalar(0, 255, 0));
-		}
-
-		cv::imshow(WINDOW_NAME, frame);
-		if (cv::waitKey(25) == 27) break;
+        while(cap.read(frame)) {
+		detectFaces(frame); // Função de detecção de faces
+		if( waitKey(30) >= 0)    // pause
+		break;
 	}
-
-	return 0;
+  return 0;
 }
