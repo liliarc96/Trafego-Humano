@@ -5,6 +5,7 @@
 class DetectorDeFace
 {
     public:
+        void detectFaces(Mat frame);
     private:
 };
 
